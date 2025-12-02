@@ -5,7 +5,21 @@
   "projects": {
     "game": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+            "changeDetection": "OnPush",
+            "inlineStyle": true,
+            "inlineTemplate": true,
+            "skipTests": true,
+            "standalone": true,
+            "skipImport": true
+        },
+        "@schematics/angular:directive": {
+            "skipTests": true,
+            "standalone": true,
+            "skipImport": true
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",

@@ -1,0 +1,64 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+    padding: var(--gap-xl);
+    width: max-content;
+}
+
+.cells {
+    display: grid;
+    gap: var(--gap);
+    padding: var(--gap);
+    background: rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0, 0, 0, .1);
+
+    &.inactive {
+        opacity: .24;
+        pointer-events: none;
+    }
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delay {
+    align-self: flex-end;
+    margin-bottom: var(--gap-xl);
+}
+
+.player {
+    opacity: .72;
+
+    &:after {
+        content: ':';
+    }
+}
+
+.popup-actions {
+    display: flex;
+    gap: var(--gap);
+}
+
+.game-controls button {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-start {
+    --bg: green;
+    --color: #fff
+}
+
+.btn-restart {
+    --bg: orange;
+    --color: #fff;
+}
+
+.btn-stop {
+    --bg: red;
+    --color: #fff;
+}

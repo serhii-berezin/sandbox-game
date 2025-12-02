@@ -1,0 +1,23 @@
+.popup-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, .64);
+}
+
+.popup-card {
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, .36);
+    padding: var(--gap-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+    width: min(90vw, 480px);
+}

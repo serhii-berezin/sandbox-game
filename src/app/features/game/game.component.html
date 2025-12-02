@@ -1,0 +1,71 @@
+<div class="delay">
+    <div>
+        Delay (in milliseconds):
+        <span
+            [class.text-important]="isHardGameMode"
+            [class.text-warning]="isNotMuchHardGameMode"
+        >{{ delay }}</span>
+    </div>
+    <div class="text-right">
+        <input
+            type="range"
+            [min]="delayMin"
+            [max]="delayMax"
+            [step]="delayStep"
+            [(ngModel)]="delay"
+            [readonly]="!isGamePrestart"
+        />
+    </div>
+</div>
+
+<div class="toolbar">
+    <div class="game-controls">
+        <button
+            appButton
+            class="btn-start"
+            *ngIf="isGamePrestart"
+            type="button"
+            (click)="start()"
+        >Start</button>
+        <button
+            appButton
+            class="btn-restart"
+            *ngIf="isGameEnded"
+            type="button"
+            (click)="restart()"
+        >Restart</button>
+        <button
+            appButton
+            class="btn-stop"
+            *ngIf="isGameInProcess"
+            type="button"
+            (click)="stop()"
+        >Stop</button>
+    </div>
+    <div class="text-right">
+        <div><span class="player">Player</span> {{ score.player }}</div>
+        <div><span class="player">Computer</span> {{ score.computer }}</div>
+    </div>
+</div>
+<div
+    class="cells"
+    [style.gridTemplateColumns]="'repeat('+size+', max-content)'"
+    [class.inactive]="isGamePrestart || isGameEnded"
+>
+    <button
+        appGameCell
+        [mode]="gameCellMode"
+        *ngFor="let gameCellMode of cells; let i = index; trackBy: trackByFn"
+        (click)="cellClicked(i, gameCellMode)"
+    ></button>
+</div>
+
+<app-popup *ngIf="isWinnerPopupShown">
+    <span class="popup-header">
+        The winner is: {{ winner }}!
+    </span>
+    <div class="popup-actions">
+        <button appButton (click)="restart()">Play again</button>
+        <button appButton (click)="showWinnerPopup(false)">No, thanks</button>
+    </div>
+</app-popup>

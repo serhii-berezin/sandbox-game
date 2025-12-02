@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --gap: .5rem;
+    --gap-l: 1rem;
+    --gap-xl: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    border: none;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-important {
+    color: red;
+}
+
+.text-warning {
+    color: orange;
+}
